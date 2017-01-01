@@ -28,8 +28,10 @@ export class InsuranceProviderService{
         return this.insurances;
     }
 
-    updateInsuranceListByHttp(): void {
-        this.requestInvokerService.invokeGetRequest(this.getInsurancesUrl)
+    updateInsuranceListByHttp(playerName: string): void {
+        var  url = this.getInsurancesUrl + playerName;
+
+        this.requestInvokerService.invokeGetRequest(url)
             .subscribe(res=>{this.insurances = res as Insurance[]},
                 (err)=>console.log(err)
             );

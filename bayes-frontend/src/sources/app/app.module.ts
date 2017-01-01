@@ -16,6 +16,8 @@ import { PlayerInfoComponent } from "./playerInfo/player-info.component";
 import { LocationsProviderService } from "./model/locations-provider.service";
 import { TravelComponent } from "./travel/travel.component";
 import {RequestInvokerService} from "./http/request-invoker.service";
+import {TurnService} from "./turnService/turn.service";
+import {InitializationService} from "./turnService/initialization.service";
 
 @NgModule({
     imports: [
@@ -38,6 +40,8 @@ import {RequestInvokerService} from "./http/request-invoker.service";
         InsuranceProviderService,
         LocationsProviderService,
         RequestInvokerService,
+        TurnService,
+        InitializationService,
         PlayerInsuranceProviderService
     ],
     bootstrap: [AppComponent]

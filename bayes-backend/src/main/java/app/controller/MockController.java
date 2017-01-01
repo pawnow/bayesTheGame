@@ -62,8 +62,8 @@ public class MockController {
         return insuranceMap.get(name);
     }
 
-    @RequestMapping(value = "/insurances", method = RequestMethod.GET, produces = "application/json")
-    public List<Insurance> getInsurances() {
+    @RequestMapping(value = "/insurances/{name}", method = RequestMethod.GET, produces = "application/json")
+    public List<Insurance> getInsurances(@PathVariable String name) {
         return Arrays.asList(new Insurance("Health", 100), new Insurance("Car", 30), new Insurance("House", 50));
     }
 
