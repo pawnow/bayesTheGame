@@ -25,7 +25,7 @@ export class TravelComponent {
     }
 
     isTravelDisabled(location: Location){
-        return this.playerProviderService.getPlayer().location == location.name;
+        return this.playerProviderService.getPlayer().location == location.name || this.playerProviderService.getPlayer().money < location.price;
     }
 
     goBack(): void {

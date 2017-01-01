@@ -24,6 +24,11 @@ export class BuyInsuranceComponent {
         this.playerInsuranceProviderService.buyInsurance(insurance, playerName);
     }
 
+    isBuyDisabled(insurance: Insurance): boolean{
+        var insuranceAlreadyBough: boolean = this.playerInsuranceProviderService.getInsurances().filter(x => x.name == insurance.name).length > 0;
+        return this.playerProviderService.getPlayer().money < insurance.price || insuranceAlreadyBough;
+    }
+
     goBack(): void {
         window.history.back();
     }

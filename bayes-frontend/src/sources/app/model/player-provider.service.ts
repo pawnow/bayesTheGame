@@ -33,7 +33,6 @@ export class PlayerProviderService{
     }
 
     updatePlayerInfoByHttp(): void {
-        console.error("UPDATE");
         var url: string = this.playerGetUrlPart1 + this.player.name + this.playerGetUrlPart2;
 
         this.requestInvokerService.invokeGetRequest(url)

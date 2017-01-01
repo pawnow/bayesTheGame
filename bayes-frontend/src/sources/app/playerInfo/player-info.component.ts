@@ -13,11 +13,6 @@ export class PlayerInfoComponent {
 
     getPlayer(): Player{
         var player: Player = this.playerProviderService.getPlayer();
-        if(player != undefined){
-            return this.playerProviderService.getPlayer();
-        }
-        else{
-            return new Player()
-        }
+        return this.playerProviderService.getPlayer();
     }
 }
