@@ -1,7 +1,9 @@
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app',
+    selector: 'my-app',
     template: require('./app.html')
 })
-export class AppComponent { }
+export class AppComponent {
+    title = 'Swindler the game';
+}

@@ -1,0 +1,15 @@
+<div id="search-component">
+    <div class="row">
+        <h4 class="col-sm-12">Menu</h4>
+    </div>
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="playerName">Player name:</label>
+            <input class="form-control" id="playerName" name="playerName" [(ngModel)]="playerProviderService.getPlayer().name" />
+        </div>
+        <button type="submit" class="btn btn-lg btn-success" [disabled]="!canStartGame()" (click)="startGame()">Start game</button>
+    </div>
+
+</div>
+

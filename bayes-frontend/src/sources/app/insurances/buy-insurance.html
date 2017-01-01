@@ -1,0 +1,15 @@
+<div>
+    <div class="row">
+        <div class="col-sm-5"></div>
+        <h4 class="col-sm-3">Available insurances:</h4>
+    </div>
+    <div class="row" *ngFor="let insurance of getInsurances()" >
+        <span class="col-sm-3 btn">{{insurance.name}} </span>
+        <span class="col-sm-2 btn">{{insurance.price}}$ </span>
+        <button type="button" class="btn btn-info col-sm-3" (click)="buyInsurance(insurance)">Buy Insurance</button>
+    </div>
+    <div class="row" >
+        <div class="col-sm-5"></div>
+        <button type="button" class="btn btn-primary col-sm-3" (click)="goBack()">Back</button>
+    </div>
+</div>

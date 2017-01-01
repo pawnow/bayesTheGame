@@ -1,0 +1,15 @@
+<div>
+    <div class="row">
+        <div class="col-sm-5"></div>
+        <h4 class="col-sm-3">Travel to location:</h4>
+    </div>
+    <div class="row" *ngFor="let location of getLocations()" >
+        <span class="col-sm-3 btn">{{location.name}} </span>
+        <span class="col-sm-2 btn">{{location.price}}$ </span>
+        <button type="button" class="btn btn-info col-sm-3" (click)="travel(location)" [disabled]="isTravelDisabled(location)">Travel</button>
+    </div>
+    <div class="row" >
+        <div class="col-sm-5"></div>
+        <button type="button" class="btn btn-primary col-sm-3" (click)="goBack()">Back</button>
+    </div>
+</div>
