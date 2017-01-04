@@ -1,42 +1,44 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from "@angular/core";
 import {Insurance} from "./insurance";
-import {Player} from "../model/player";
 import {RequestInvokerService} from "../http/request-invoker.service";
 import {PlayerProviderService} from "./player-provider.service";
 
 @Injectable()
-export class PlayerInsuranceProviderService{
-    insurances:Insurance[];
+export class PlayerInsuranceProviderService {
+    insurances: Insurance[];
     private playerUrl = '/player/';
     private playerInsurancesGetUrl = '/insurances/';
     private playerInsurancesPostUrl = '/buyInsurance/';
 
     constructor(private requestInvokerService: RequestInvokerService,
                 private playerProviderService: PlayerProviderService) {
-        this.insurances =[
-        ]
+        this.insurances = []
     }
 
-    buyInsurance(insurance:Insurance, playerName: string): void{
-        var  url = this.playerUrl + playerName + this.playerInsurancesPostUrl;
+    buyInsurance(insurance: Insurance, playerName: string): void {
+        var url = this.playerUrl + playerName + this.playerInsurancesPostUrl;
 
         this.requestInvokerService.invokePostRequest(url, insurance)
-            .subscribe(res=>{this.insurances = res as Insurance[]},
-                (err)=>console.log(err),
-                ()=>this.playerProviderService.updatePlayerInfoByHttp()
+            .subscribe(res => {
+                    this.insurances = res as Insurance[]
+                },
+                (err) => console.log(err),
+                () => this.playerProviderService.updatePlayerInfoByHttp()
             );
     }
 
-    getInsurances(): Insurance[]{
+    getInsurances(): Insurance[] {
         return this.insurances;
     }
 
     updatePlayerInsuranceListByHttp(playerName: string): void {
-        var  url = this.playerUrl + playerName + this.playerInsurancesGetUrl;
+        var url = this.playerUrl + playerName + this.playerInsurancesGetUrl;
 
         this.requestInvokerService.invokeGetRequest(url)
-            .subscribe(res=>{this.insurances = res as Insurance[]},
-                (err)=>console.log(err)
+            .subscribe(res => {
+                    this.insurances = res as Insurance[]
+                },
+                (err) => console.log(err)
             );
     }
 }

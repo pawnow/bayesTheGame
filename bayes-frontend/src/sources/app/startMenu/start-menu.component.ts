@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Player } from '../model/player';
-import { PlayerProviderService } from '../model/player-provider.service';
+import {Component} from "@angular/core";
+import {Router} from "@angular/router";
+import {PlayerProviderService} from "../model/player-provider.service";
 
 @Component({
     selector: 'start-menu',
@@ -12,7 +11,7 @@ export class StartMenuComponent {
                 private router: Router) {
     }
 
-    startGame():void {
+    startGame(): void {
         if (this.canStartGame()) {
             this.playerProviderService.createNewPlayer();
             let link = ['/game'];
@@ -20,7 +19,7 @@ export class StartMenuComponent {
         }
     }
 
-    canStartGame():boolean {
+    canStartGame(): boolean {
         let playerName = this.playerProviderService.getPlayer().name;
         return playerName != null && playerName != '';
     }

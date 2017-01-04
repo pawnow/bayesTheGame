@@ -1,9 +1,8 @@
-import { Player } from '../model/player';
-import { Injectable } from '@angular/core';
-import { InsuranceProviderService } from "../model/insurance-provider.service";
+import {Injectable} from "@angular/core";
+import {InsuranceProviderService} from "../model/insurance-provider.service";
 
 @Injectable()
-export class InitializationService{
+export class InitializationService {
     constructor(private insuranceProviderService: InsuranceProviderService) {
     }
 
