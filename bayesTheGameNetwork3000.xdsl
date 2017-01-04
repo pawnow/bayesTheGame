@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- This network was created in GeNIe Academic, which can be used for educational and research purposes only -->
+<smile version="1.0" id="Network1" numsamples="1000" discsamples="10000">
+	<nodes>
+		<cpt id="Ulewa">
+			<state id="tak" />
+			<state id="nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Snieg">
+			<state id="tak" />
+			<state id="nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Grad">
+			<state id="tak" />
+			<state id="nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Burza">
+			<state id="tak" />
+			<state id="nie" />
+			<probabilities>0.2 0.8</probabilities>
+		</cpt>
+		<cpt id="Zimno">
+			<state id="tak" />
+			<state id="nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="PorazeniePiorunem">
+			<state id="tak" />
+			<state id="nie" />
+			<parents>Burza Ulewa</parents>
+			<probabilities>0.8 0.2 0.9 0.1 0.1 0.9 0 1</probabilities>
+		</cpt>
+		<cpt id="Slisko">
+			<state id="tak" />
+			<state id="nie" />
+			<parents>Snieg Zimno</parents>
+			<probabilities>0.9 0.1 0.8 0.2 0.5 0.5 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Stluczka">
+			<state id="tak" />
+			<state id="nie" />
+			<parents>Slisko</parents>
+			<probabilities>0.7 0.3 0.2 0.8</probabilities>
+		</cpt>
+		<cpt id="Katastrofa_w_ruchu_ladowym">
+			<state id="tak" />
+			<state id="nie" />
+			<parents>Slisko</parents>
+			<probabilities>0.1 0.9 0.01 0.99</probabilities>
+		</cpt>
+		<cpt id="UbezpieczenieSamochodu">
+			<state id="tak" />
+			<state id="nie" />
+			<parents>Stluczka Katastrofa_w_ruchu_ladowym</parents>
+			<probabilities>0.8 0.2 0.8 0.2 0.8 0.2 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="ZlamanieReki">
+			<state id="tak" />
+			<state id="nie" />
+			<parents>Slisko Katastrofa_w_ruchu_ladowym</parents>
+			<probabilities>0.95 0.05 0.8 0.2 0.3 0.7 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Smierc">
+			<state id="tak" />
+			<state id="nie" />
+			<parents>PorazeniePiorunem Katastrofa_w_ruchu_ladowym</parents>
+			<probabilities>0.8 0.2 0.4 0.6 0.5 0.5 0.001 0.999</probabilities>
+		</cpt>
+		<cpt id="UbezpieczenieZdrowotne">
+			<state id="tak" />
+			<state id="nie" />
+			<parents>PorazeniePiorunem ZlamanieReki Smierc</parents>
+			<probabilities>0 1 1 0 0 1 0.7 0.3 0 1 0.5 0.5 0 1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Wybicie_szyby_w_oknie_mieszkania">
+			<state id="tak" />
+			<state id="nie" />
+			<parents>Grad</parents>
+			<probabilities>0.7 0.3 0.2 0.8</probabilities>
+		</cpt>
+		<cpt id="UbezpieczenieMieszkania">
+			<state id="tak" />
+			<state id="nie" />
+			<parents>Wybicie_szyby_w_oknie_mieszkania</parents>
+			<probabilities>0.8 0.2 0 1</probabilities>
+		</cpt>
+		<cpt id="Ubezpieczenie_na_zycie">
+			<state id="tak" />
+			<state id="nie" />
+			<parents>Smierc</parents>
+			<probabilities>0.8 0.2 0 1</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.1.1104.0 ACADEMIC" name="Network1" faultnameformat="nodestate">
+			<node id="Ulewa">
+				<name>Ulewa</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>324 221 416 280</position>
+			</node>
+			<node id="Snieg">
+				<name>Snieg</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>469 225 561 284</position>
+			</node>
+			<node id="Grad">
+				<name>Grad</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>764 227 856 286</position>
+			</node>
+			<node id="Burza">
+				<name>Burza</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>175 220 267 279</position>
+			</node>
+			<node id="Zimno">
+				<name>Zimno</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>617 228 709 287</position>
+			</node>
+			<node id="PorazeniePiorunem">
+				<name>Porazenie Piorunem</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>240 374 332 433</position>
+			</node>
+			<node id="Slisko">
+				<name>Slisko</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>541 347 623 398</position>
+			</node>
+			<node id="UbezpieczenieZdrowotne">
+				<name>Ubezpieczenie zdrowotne</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>236 568 345 639</position>
+			</node>
+			<node id="UbezpieczenieSamochodu">
+				<name>Ubezpieczenie samochodu</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>521 576 644 648</position>
+			</node>
+			<node id="UbezpieczenieMieszkania">
+				<name>Ubezpieczenie mieszkania</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>747 575 875 639</position>
+			</node>
+			<node id="Wybicie_szyby_w_oknie_mieszkania">
+				<name>Wybicie szyby w oknie mieszkania</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>786 359 894 426</position>
+			</node>
+			<node id="ZlamanieReki">
+				<name>Zlamanie reki</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>420 434 496 481</position>
+			</node>
+			<node id="Stluczka">
+				<name>Stluczka</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>575 445 631 480</position>
+			</node>
+			<node id="Smierc">
+				<name>Smierc</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>483 725 704 815</position>
+			</node>
+			<node id="Katastrofa_w_ruchu_ladowym">
+				<name>Katastrofa w ruchu ladowym</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>638 481 741 545</position>
+			</node>
+			<node id="Ubezpieczenie_na_zycie">
+				<name>Ubezpieczenie na zycie</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>806 754 899 812</position>
+			</node>
+		</genie>
+	</extensions>
+</smile>
