@@ -30,6 +30,7 @@
     "font-awesome": "^4.7.0"
   },
   "devDependencies": {
+    "@types/node": "^6.0.56",
     "concurrently": "^2.2.0",
     "copy-webpack-plugin": "^4.0.1",
     "html-webpack-plugin": "^2.24.1",
