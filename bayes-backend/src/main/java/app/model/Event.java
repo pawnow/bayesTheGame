@@ -8,9 +8,11 @@ import java.util.Objects;
  */
 public class Event implements Serializable{
     private String description;
+    private int moneyChange;
 
-    public Event(String description) {
+    public Event(String description, int moneyChange) {
         this.description = description;
+        this.moneyChange = moneyChange;
     }
 
     public Event() {
@@ -24,16 +26,25 @@ public class Event implements Serializable{
         this.description = description;
     }
 
+    public int getMoneyChange() {
+        return moneyChange;
+    }
+
+    public void setMoneyChange(int moneyChange) {
+        this.moneyChange = moneyChange;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Event event = (Event) o;
-        return Objects.equals(description, event.description);
+        return moneyChange == event.moneyChange &&
+                Objects.equals(description, event.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(description);
+        return Objects.hash(description, moneyChange);
     }
 }

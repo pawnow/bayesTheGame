@@ -3,7 +3,7 @@ import {Insurance} from "../model/insurance";
 import {PlayerInsuranceProviderService} from "../model/player-insurance-provider.service";
 import {InsuranceProviderService} from "../model/insurance-provider.service";
 import {PlayerProviderService} from "../model/player-provider.service";
-import {LocationsProviderService} from "../model/locations-provider.service";
+import {LocationsProviderService} from "../model/location-provider.service.ts";
 import {Location} from "../model/location";
 
 @Component({

@@ -25,7 +25,7 @@ public class MockController {
         players.stream().filter(player1 -> player.getName().equals(player1.getName())).findAny().ifPresent(player2 -> {
             player2.setAge(player2.getAge()+1);
         });
-        return new Event("You have been seriously injured");
+        return new Event("You have been seriously injured", 1);
     }
 
     @RequestMapping(value = "/player/{name}/buyInsurance", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")

@@ -1,0 +1,16 @@
+<div class="container col-sm-12 top-margin">
+    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Event description</th>
+                <th>Money change</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let event of getEvents()">
+                <td>{{event.description}}</td>
+                <td>{{event.moneyChange}}$</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

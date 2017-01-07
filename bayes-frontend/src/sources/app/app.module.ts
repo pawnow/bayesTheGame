@@ -13,11 +13,13 @@ import { PlayerInsuranceProviderService } from "./model/player-insurance-provide
 import { BuyInsuranceComponent } from "./insurances/buy-insurance.component";
 import { PlayerInsuranceComponent } from "./insurances/player-insurance.component";
 import { PlayerInfoComponent } from "./playerInfo/player-info.component";
-import { LocationsProviderService } from "./model/locations-provider.service";
+import { LocationsProviderService } from "./model/location-provider.service.ts";
 import { TravelComponent } from "./travel/travel.component";
 import {RequestInvokerService} from "./http/request-invoker.service";
 import {TurnService} from "./turnService/turn.service";
 import {InitializationService} from "./turnService/initialization.service";
+import {EventProviderService} from "./model/event-provider.service";
+import {EventComponent} from "./events/events.component";
 
 @NgModule({
     imports: [
@@ -33,7 +35,8 @@ import {InitializationService} from "./turnService/initialization.service";
         BuyInsuranceComponent,
         PlayerInsuranceComponent,
         PlayerInfoComponent,
-        TravelComponent
+        TravelComponent,
+        EventComponent
     ],
     providers: [
         PlayerProviderService,
@@ -42,6 +45,7 @@ import {InitializationService} from "./turnService/initialization.service";
         RequestInvokerService,
         TurnService,
         InitializationService,
+        EventProviderService,
         PlayerInsuranceProviderService
     ],
     bootstrap: [AppComponent]
