@@ -26,12 +26,11 @@ public class GameController {
 
     @RequestMapping(value = "/player/create", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public Player createPlayer(@RequestBody Player player) {
-        playerRepository.createPlayer(player);
-        return player;
+        return playerRepository.createPlayer(player);
     }
 
     @RequestMapping(value = "/player/nextTurn", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public Event nextTurn(@RequestBody Player player) {
+    public List<Event> nextTurn(@RequestBody Player player) {
         return playerService.nextTurn(player.getName());
     }
 
@@ -59,7 +58,7 @@ public class GameController {
 
     @RequestMapping(value = "/insurances/{name}", method = RequestMethod.GET, produces = "application/json")
     public List<Insurance> getInsurances(@PathVariable String name) {
-        return Arrays.asList(new Insurance("Health", 100), new Insurance("Car", 30), new Insurance("House", 50));
+        return insuranceRepository.getAllPossibleInsurances();
     }
 
     @RequestMapping(value = "/locations", method = RequestMethod.GET, produces = "application/json")

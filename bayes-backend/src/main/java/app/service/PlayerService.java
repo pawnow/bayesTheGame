@@ -7,11 +7,8 @@ import app.model.Location;
 import app.model.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PlayerService {
@@ -20,28 +17,38 @@ public class PlayerService {
     private PlayerRepository playerRepository;
 
     @Autowired
+    private BayesService bayesService;
+
+    @Autowired
     private InsuranceRepository insuranceRepository;
 
-    public Event nextTurn(String playerName) {
+    public List<Event> nextTurn(String playerName) {
         playerRepository.getPlayerByName(playerName).ifPresent(player2 -> {
             player2.setAge(player2.getAge()+1);
+            bayesService.updatePlayerLocationAndWeather(player2);
         });
-        return new Event("You have been seriously injured", 1);
+        List<Event> eventsBasedOnBayesOutputs = bayesService.getEventsBasedOnBayesOutputs();
+        eventsBasedOnBayesOutputs.forEach(event -> handleEvent(playerName, event.getMoneyChange()));
+        return eventsBasedOnBayesOutputs;
+    }
+
+    private void handleEvent(String playerName, int moneyChange) {
+        changePlayerMoney(playerName, moneyChange);
     }
 
     public void travel(String playerName, Location location) {
-        decreasePlayerMoney(playerName, location.getPrice());
+        changePlayerMoney(playerName, -location.getPrice());
         playerRepository.getPlayerByName(playerName).ifPresent(player2 -> {
             player2.setLocation(location.getName());
         });
     }
 
     public void buyInsurance(String playerName, Insurance insurance) {
-        decreasePlayerMoney(playerName, insurance.getPrice());
+        changePlayerMoney(playerName, -insurance.getPrice());
         insuranceRepository.addInsuranceToPlayer(playerName, insurance);
     }
 
-    private void decreasePlayerMoney(String playerName, int price) {
+    private void changePlayerMoney(String playerName, int price) {
         playerRepository.getPlayerByName(playerName).ifPresent(player1 -> {
             decreaseMoneyIfPlayerIsRichEnough(player1, price);
         });
