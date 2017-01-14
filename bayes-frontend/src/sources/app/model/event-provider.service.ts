@@ -13,7 +13,7 @@ export class EventProviderService{
         return this.events;
     }
 
-    addNewEvent(event: Event[]): void{
-        this.events.concat(event);
+    addNewEvent(events: Event[]): void{
+        this.events.push(...events);
     }
 }
