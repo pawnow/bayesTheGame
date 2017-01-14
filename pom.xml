@@ -14,6 +14,10 @@
         <module>bayes-backend</module>
     </modules>
 
+    <properties>
+        <lombok.version>1.16.10</lombok.version>
+    </properties>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>

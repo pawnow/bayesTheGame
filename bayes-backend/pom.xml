@@ -21,6 +21,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -40,5 +45,10 @@
         </plugins>
     </build>
 
-
+    <repositories>
+        <repository>
+            <id>lombock</id>
+            <url>https://mvnrepository.com/artifact/org.projectlombok/lombok</url>
+        </repository>
+    </repositories>
 </project>
