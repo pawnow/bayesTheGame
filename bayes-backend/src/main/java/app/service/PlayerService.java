@@ -28,12 +28,19 @@ public class PlayerService {
             bayesService.updatePlayerLocationAndWeather(player2);
         });
         List<Event> eventsBasedOnBayesOutputs = bayesService.getEventsBasedOnBayesOutputs();
-        eventsBasedOnBayesOutputs.forEach(event -> handleEvent(playerName, event.getMoneyChange()));
+        eventsBasedOnBayesOutputs.forEach(event -> handleEvent(playerName, event));
         return eventsBasedOnBayesOutputs;
     }
 
-    private void handleEvent(String playerName, int moneyChange) {
-        changePlayerMoney(playerName, moneyChange);
+    private void handleEvent(String playerName, Event event) {
+        Insurance insurance = event.getInsurance();
+        if(insuranceRepository.isPlayerInsured(playerName, insurance)){
+            insuranceRepository.removePlayerInsurance(playerName, insurance);
+        }
+        else{
+            event.setMoneyChange(-event.getMoneyChange());
+        }
+        changePlayerMoney(playerName, event.getMoneyChange());
     }
 
     public void travel(String playerName, Location location) {
