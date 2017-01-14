@@ -50,16 +50,16 @@ public class PlayerService {
 
     private void changePlayerMoney(String playerName, int price) {
         playerRepository.getPlayerByName(playerName).ifPresent(player1 -> {
-            decreaseMoneyIfPlayerIsRichEnough(player1, price);
+            changeMoneyIfPlayerIsRichEnough(player1, price);
         });
     }
 
-    private void decreaseMoneyIfPlayerIsRichEnough(Player player, int price) {
+    private void changeMoneyIfPlayerIsRichEnough(Player player, int moneyChange) {
         int playerMoney = player.getMoney();
-        if(playerMoney < price){
+        if(playerMoney + moneyChange < 0){
             throw new NotEnoughMoneyException();
         }
-        player.setMoney(player.getMoney() - price);
+        player.setMoney(player.getMoney() + moneyChange);
     }
 
 }
