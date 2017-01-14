@@ -11,4 +11,5 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Event implements Serializable{
     private String description;
+    private int moneyChange;
 }

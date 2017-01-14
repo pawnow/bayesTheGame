@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {PlayerProviderService} from "../model/player-provider.service";
-import {LocationsProviderService} from "../model/locations-provider.service";
+import {LocationsProviderService} from "../model/location-provider.service.ts";
 import {Location} from "../model/location";
 
 @Component({

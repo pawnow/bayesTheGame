@@ -26,7 +26,7 @@ public class PlayerService {
         playerRepository.getPlayerByName(playerName).ifPresent(player2 -> {
             player2.setAge(player2.getAge()+1);
         });
-        return new Event("You have been seriously injured");
+        return new Event("You have been seriously injured", 1);
     }
 
     public void travel(String playerName, Location location) {
