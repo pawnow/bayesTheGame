@@ -2,11 +2,12 @@ package app.service;
 
 import app.model.Insurance;
 import app.model.Player;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-@Service
+@Repository
 public class InsuranceRepository {
     private static final List<Insurance> allPossibleInsurances = Collections.unmodifiableList(Arrays.asList(new Insurance("HealthInsurance", 100),
             new Insurance("HouseInsurance", 30), new Insurance("CarInsurance", 50), new Insurance("DisasterInsurance", 60),

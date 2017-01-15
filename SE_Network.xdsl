@@ -2,27 +2,27 @@
 <!-- This network was created in GeNIe Academic, which can be used for educational and research purposes only -->
 <smile version="1.0" id="Network1" numsamples="1000" discsamples="10000">
 	<nodes>
-		<deterministic id="Sunny">
+		<cpt id="Sunny">
 			<state id="Yes" />
 			<state id="No" />
-			<resultingstates>No</resultingstates>
-		</deterministic>
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
 		<cpt id="Drought">
 			<state id="Yes" />
 			<state id="No" />
 			<parents>Sunny</parents>
 			<probabilities>0.1 0.9 0 1</probabilities>
 		</cpt>
-		<deterministic id="Rainy">
+		<cpt id="Rainy">
 			<state id="Yes" />
 			<state id="No" />
-			<resultingstates>No</resultingstates>
-		</deterministic>
-		<deterministic id="Village">
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
+		<cpt id="Village">
 			<state id="Yes" />
 			<state id="No" />
-			<resultingstates>No</resultingstates>
-		</deterministic>
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
 		<cpt id="Flood">
 			<state id="Yes" />
 			<state id="No" />
@@ -35,54 +35,54 @@
 			<parents>Drought Flood</parents>
 			<probabilities>1 0 1 0 1 0 0 1</probabilities>
 		</cpt>
-		<deterministic id="City">
+		<cpt id="City">
 			<state id="Yes" />
 			<state id="No" />
-			<resultingstates>Yes</resultingstates>
-		</deterministic>
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
 		<cpt id="TheftInsurance">
 			<state id="Yes" />
 			<state id="No" />
 			<parents>City</parents>
 			<probabilities>0.05 0.95 0.03 0.97</probabilities>
 		</cpt>
-		<deterministic id="Sea">
+		<cpt id="Sea">
 			<state id="Yes" />
 			<state id="No" />
-			<resultingstates>Yes</resultingstates>
-		</deterministic>
-		<deterministic id="Mountains">
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
+		<cpt id="Mountains">
 			<state id="Yes" />
 			<state id="No" />
-			<resultingstates>No</resultingstates>
-		</deterministic>
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
 		<cpt id="HolidayInsurance">
 			<state id="Yes" />
 			<state id="No" />
 			<parents>Sea Mountains</parents>
 			<probabilities>0.3 0.7 0.1 0.9 0.2 0.8 0.05 0.95</probabilities>
 		</cpt>
-		<deterministic id="Lightning">
+		<cpt id="Lightning">
 			<state id="Yes" />
 			<state id="No" />
-			<resultingstates>Yes</resultingstates>
-		</deterministic>
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
 		<cpt id="ThunderStroke">
 			<state id="Yes" />
 			<state id="No" />
 			<parents>Lightning</parents>
 			<probabilities>0.8 0.2 0 1</probabilities>
 		</cpt>
-		<deterministic id="Snowy">
+		<cpt id="Snowy">
 			<state id="Yes" />
 			<state id="No" />
-			<resultingstates>No</resultingstates>
-		</deterministic>
-		<deterministic id="Cold">
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
+		<cpt id="Cold">
 			<state id="Yes" />
 			<state id="No" />
-			<resultingstates>No</resultingstates>
-		</deterministic>
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
 		<cpt id="Slippery">
 			<state id="Yes" />
 			<state id="No" />
@@ -119,11 +119,11 @@
 			<parents>ThunderStroke BrokenArm SkiAccident</parents>
 			<probabilities>1 0 1 0 1 0 1 0 0.95 0.05 0.5 0.5 0.9 0.1 0.01 0.99</probabilities>
 		</cpt>
-		<deterministic id="Hail">
+		<cpt id="Hail">
 			<state id="Yes" />
 			<state id="No" />
-			<resultingstates>No</resultingstates>
-		</deterministic>
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
 		<cpt id="BrokenWindow">
 			<state id="Yes" />
 			<state id="No" />

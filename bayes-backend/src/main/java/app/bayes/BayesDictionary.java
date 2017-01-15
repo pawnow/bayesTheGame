@@ -1,8 +1,8 @@
 package app.bayes;
 
 public interface BayesDictionary {
-    String TAK = "tak";
-    String NIE = "nie";
+    String TAK = "Yes";
+    String NIE = "No";
 
     String ZYCIE = "Ubezpieczenie_na_zycie";
     String MIESZKANIA = "UbezpieczenieMieszkania";

@@ -20,7 +20,7 @@ public class Polygon implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        network.readFile("bayesTheGameNetwork3000.xdsl");
+        network.readFile("SE_Network.xdsl");
         evidences = getEntryNodes(network);
         ubezpieczenia = getExitNodes(network);
 

@@ -25,9 +25,10 @@ public class PlayerService {
     public List<Event> nextTurn(String playerName) {
         playerRepository.getPlayerByName(playerName).ifPresent(player2 -> {
             player2.setAge(player2.getAge()+1);
+            player2.setWeather(bayesService.getNextWeather());
             bayesService.updatePlayerLocationAndWeather(player2);
         });
-        List<Event> eventsBasedOnBayesOutputs = bayesService.getEventsBasedOnBayesOutputs();
+        List<Event> eventsBasedOnBayesOutputs = bayesService.getEventsBasedOnBayesOutputs(playerName);
         eventsBasedOnBayesOutputs.forEach(event -> handleEvent(playerName, event));
         return eventsBasedOnBayesOutputs;
     }
