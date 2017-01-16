@@ -20,6 +20,8 @@ import {TurnService} from "./turnService/turn.service";
 import {InitializationService} from "./turnService/initialization.service";
 import {EventProviderService} from "./model/event-provider.service";
 import {EventComponent} from "./events/events.component";
+import {HighscoresComponent} from "./highscores/highscores.component";
+import {HighscoreProviderService} from "./model/highscores-provider.service";
 
 @NgModule({
     imports: [
@@ -36,7 +38,8 @@ import {EventComponent} from "./events/events.component";
         PlayerInsuranceComponent,
         PlayerInfoComponent,
         TravelComponent,
-        EventComponent
+        EventComponent,
+        HighscoresComponent
     ],
     providers: [
         PlayerProviderService,
@@ -46,7 +49,8 @@ import {EventComponent} from "./events/events.component";
         TurnService,
         InitializationService,
         EventProviderService,
-        PlayerInsuranceProviderService
+        PlayerInsuranceProviderService,
+        HighscoreProviderService
     ],
     bootstrap: [AppComponent]
 })

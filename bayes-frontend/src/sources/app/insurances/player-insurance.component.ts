@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from "@angular/core";
 import {Insurance} from "../model/insurance";
 import {PlayerInsuranceProviderService} from "../model/player-insurance-provider.service";
 
@@ -7,11 +7,10 @@ import {PlayerInsuranceProviderService} from "../model/player-insurance-provider
     template: require('./player-insurance.html')
 })
 export class PlayerInsuranceComponent {
-    constructor(
-        private playerInsuranceProviderService: PlayerInsuranceProviderService){
+    constructor(private playerInsuranceProviderService: PlayerInsuranceProviderService) {
     }
 
-    getInsurances(): Insurance[]{
+    getInsurances(): Insurance[] {
         return this.playerInsuranceProviderService.getInsurances();
     }
 }

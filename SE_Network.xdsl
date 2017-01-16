@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- This network was created in GeNIe Academic, which can be used for educational and research purposes only -->
+<smile version="1.0" id="Network1" numsamples="1000" discsamples="10000">
+	<nodes>
+		<cpt id="Sunny">
+			<state id="Yes" />
+			<state id="No" />
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
+		<cpt id="Drought">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Sunny</parents>
+			<probabilities>0.1 0.9 0 1</probabilities>
+		</cpt>
+		<cpt id="Rainy">
+			<state id="Yes" />
+			<state id="No" />
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
+		<cpt id="Village">
+			<state id="Yes" />
+			<state id="No" />
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
+		<cpt id="Flood">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Rainy Village</parents>
+			<probabilities>0.6 0.4 0.2 0.8 0.1 0.9 0.05 0.95</probabilities>
+		</cpt>
+		<cpt id="DisasterInsurance">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Drought Flood</parents>
+			<probabilities>1 0 1 0 1 0 0 1</probabilities>
+		</cpt>
+		<cpt id="City">
+			<state id="Yes" />
+			<state id="No" />
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
+		<cpt id="TheftInsurance">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>City</parents>
+			<probabilities>0.05 0.95 0.03 0.97</probabilities>
+		</cpt>
+		<cpt id="Sea">
+			<state id="Yes" />
+			<state id="No" />
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
+		<cpt id="Mountains">
+			<state id="Yes" />
+			<state id="No" />
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
+		<cpt id="HolidayInsurance">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Sea Mountains</parents>
+			<probabilities>0.3 0.7 0.1 0.9 0.2 0.8 0.05 0.95</probabilities>
+		</cpt>
+		<cpt id="Lightning">
+			<state id="Yes" />
+			<state id="No" />
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
+		<cpt id="ThunderStroke">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Lightning</parents>
+			<probabilities>0.8 0.2 0 1</probabilities>
+		</cpt>
+		<cpt id="Snowy">
+			<state id="Yes" />
+			<state id="No" />
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
+		<cpt id="Cold">
+			<state id="Yes" />
+			<state id="No" />
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
+		<cpt id="Slippery">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Rainy Snowy Cold</parents>
+			<probabilities>1 0 0.8 0.2 0.7 0.3 0.1 0.9 0.8 0.2 0.6 0.4 0.2 0.8 0.05 0.95</probabilities>
+		</cpt>
+		<cpt id="CarAccident">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Slippery City</parents>
+			<probabilities>0.7 0.3 0.4 0.6 0.2 0.8 0.01 0.99</probabilities>
+		</cpt>
+		<cpt id="CarInsurance">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>CarAccident</parents>
+			<probabilities>0.8 0.2 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="BrokenArm">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Slippery</parents>
+			<probabilities>0.6 0.4 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="SkiAccident">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Mountains</parents>
+			<probabilities>0.3 0.7 0 1</probabilities>
+		</cpt>
+		<cpt id="HealthInsurance">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>ThunderStroke BrokenArm SkiAccident</parents>
+			<probabilities>1 0 1 0 1 0 1 0 0.95 0.05 0.5 0.5 0.9 0.1 0.01 0.99</probabilities>
+		</cpt>
+		<cpt id="Hail">
+			<state id="Yes" />
+			<state id="No" />
+			<probabilities>0.5 0.5 </probabilities>
+		</cpt>
+		<cpt id="BrokenWindow">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Hail</parents>
+			<probabilities>0.7 0.3 0.7 0.3</probabilities>
+		</cpt>
+		<cpt id="HouseInsurance">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>BrokenWindow</parents>
+			<probabilities>0.8 0.2 0 1</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.1.1104.0 ACADEMIC" name="Network1" faultnameformat="nodestate">
+			<node id="ThunderStroke">
+				<name>Thunder stroke</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>351 502 455 573</position>
+			</node>
+			<node id="Slippery">
+				<name>Slippery</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>650 476 762 544</position>
+			</node>
+			<node id="HealthInsurance">
+				<name>Health insurance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>350 767 459 838</position>
+			</node>
+			<node id="CarInsurance">
+				<name>Car insurance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>647 773 770 845</position>
+			</node>
+			<node id="HouseInsurance">
+				<name>House insurance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1301 784 1429 848</position>
+			</node>
+			<node id="BrokenWindow">
+				<name>Broken window</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1312 586 1420 653</position>
+			</node>
+			<node id="BrokenArm">
+				<name>Broken Arm</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>488 501 591 576</position>
+			</node>
+			<node id="CarAccident">
+				<name>Car accident</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>646 603 766 670</position>
+			</node>
+			<node id="Lightning">
+				<name>Lightning</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>363 365 457 444</position>
+			</node>
+			<node id="Rainy">
+				<name>Rainy</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>879 357 973 436</position>
+			</node>
+			<node id="Snowy">
+				<name>Snowy</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>697 355 791 434</position>
+			</node>
+			<node id="Cold">
+				<name>Cold</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>552 357 646 436</position>
+			</node>
+			<node id="Hail">
+				<name>Hail</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1319 363 1413 442</position>
+			</node>
+			<node id="Sunny">
+				<name>Sunny</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1146 361 1240 440</position>
+			</node>
+			<node id="City">
+				<name>City</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>809 519 903 598</position>
+			</node>
+			<node id="Village">
+				<name>Village</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1007 359 1101 438</position>
+			</node>
+			<node id="Mountains">
+				<name>Mountains</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>198 361 292 440</position>
+			</node>
+			<node id="Sea">
+				<name>Sea</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>43 364 137 443</position>
+			</node>
+			<node id="SkiAccident">
+				<name>Ski accident</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>212 502 321 573</position>
+			</node>
+			<node id="DisasterInsurance">
+				<name>Disaster insurance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1141 779 1250 850</position>
+			</node>
+			<node id="Drought">
+				<name>Drought</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1137 601 1246 672</position>
+			</node>
+			<node id="Flood">
+				<name>Flood</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>996 597 1105 668</position>
+			</node>
+			<node id="TheftInsurance">
+				<name>Theft insurance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>804 776 913 847</position>
+			</node>
+			<node id="HolidayInsurance">
+				<name>Holiday insurance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>36 745 145 816</position>
+			</node>
+		</genie>
+	</extensions>
+</smile>

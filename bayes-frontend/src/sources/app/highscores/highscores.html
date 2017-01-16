@@ -1,0 +1,17 @@
+<div class="container col-sm-12 top-margin">
+    Game ended, you collected {{getPlayerMoney()}}$
+    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Player name</th>
+                <th>Money collected</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let score of getHighscores()">
+                <td>{{score.playerName}}</td>
+                <td>{{score.money}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
