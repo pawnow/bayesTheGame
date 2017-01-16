@@ -21,4 +21,9 @@ public class PlayerRepository {
         return players.stream().filter(player1 -> name.equals(player1.getName())).findAny();
     }
 
+    public void removePlayer(String name) {
+        getPlayerByName(name).ifPresent(player -> players.remove(player));
+    }
+
+
 }

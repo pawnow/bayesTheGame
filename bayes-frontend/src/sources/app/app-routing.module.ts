@@ -4,6 +4,7 @@ import {StartMenuComponent} from "./startMenu/start-menu.component";
 import {GameMenuComponent} from "./gameMenu/game-menu.component";
 import {TravelComponent} from "./travel/travel.component";
 import {BuyInsuranceComponent} from "./insurances/buy-insurance.component";
+import {HighscoresComponent} from "./highscores/highscores.component";
 
 const routes: Routes = [
     {
@@ -26,6 +27,10 @@ const routes: Routes = [
     {
         path: 'insurance',
         component: BuyInsuranceComponent
+    },
+    {
+        path: 'highscores',
+        component: HighscoresComponent
     }
 ];
 

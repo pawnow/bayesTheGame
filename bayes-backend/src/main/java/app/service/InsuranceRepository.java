@@ -31,8 +31,15 @@ public class InsuranceRepository {
         }
     }
 
+    public void removeAllPlayerInsurance(String playerName) {
+        List<Insurance> insurances = insuranceMap.get(playerName);
+        if(insurances != null){
+            insurances.clear();
+        }
+    }
+
     public List<Insurance> getPlayerInsurances(String playerName) {
-        return insuranceMap.get(playerName);
+        return insuranceMap.get(playerName) == null ? Collections.emptyList() : insuranceMap.get(playerName);
     }
 
     public boolean isPlayerInsured(String playerName, Insurance insurance) {

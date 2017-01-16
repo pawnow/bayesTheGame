@@ -1,14 +1,13 @@
 package app.service;
 
 import app.exception.NotEnoughMoneyException;
-import app.model.Event;
-import app.model.Insurance;
-import app.model.Location;
-import app.model.Player;
+import app.exception.TooManyInsurancesException;
+import app.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlayerService {
@@ -22,14 +21,24 @@ public class PlayerService {
     @Autowired
     private InsuranceRepository insuranceRepository;
 
+    @Autowired
+    private ScoreRepository scoreRepository;
+
     public List<Event> nextTurn(String playerName) {
-        playerRepository.getPlayerByName(playerName).ifPresent(player2 -> {
+        Optional<Player> player = playerRepository.getPlayerByName(playerName);
+        player.ifPresent(player2 -> {
             player2.setAge(player2.getAge()+1);
             player2.setWeather(bayesService.getNextWeather());
             bayesService.updatePlayerLocationAndWeather(player2);
         });
         List<Event> eventsBasedOnBayesOutputs = bayesService.getEventsBasedOnBayesOutputs(playerName);
         eventsBasedOnBayesOutputs.forEach(event -> handleEvent(playerName, event));
+        if(player.map(Player::getAge).orElse(0) > 50){
+            eventsBasedOnBayesOutputs.add(new Event("END_GAME", 0, null));
+            scoreRepository.saveScore(new Score(playerName, player.map(Player::getMoney).orElse(0)));
+            playerRepository.removePlayer(playerName);
+            insuranceRepository.removeAllPlayerInsurance(playerName);
+        }
         return eventsBasedOnBayesOutputs;
     }
 
@@ -52,6 +61,9 @@ public class PlayerService {
     }
 
     public void buyInsurance(String playerName, Insurance insurance) {
+        if(insuranceRepository.getPlayerInsurances(playerName).size() >= 3){
+            throw new TooManyInsurancesException();
+        }
         changePlayerMoney(playerName, -insurance.getPrice());
         insuranceRepository.addInsuranceToPlayer(playerName, insurance);
     }

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Event} from "./event";
+import { Router } from '@angular/router';
 
 @Injectable()
 export class EventProviderService{
     private events:Event[];
 
-    constructor() {
+    constructor(private router:Router) {
         this.events = []
     }
 
@@ -15,5 +16,9 @@ export class EventProviderService{
 
     addNewEvent(events: Event[]): void{
         this.events.push(...events);
+        if(this.events.find(x => x.description == "END_GAME") != undefined){
+            let link = ['/highscores'];
+            this.router.navigate(link);
+        }
     }
 }

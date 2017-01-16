@@ -1,12 +1,10 @@
 package app.controller;
 
-import app.model.Event;
-import app.model.Insurance;
-import app.model.Location;
-import app.model.Player;
+import app.model.*;
 import app.service.InsuranceRepository;
 import app.service.PlayerRepository;
 import app.service.PlayerService;
+import app.service.ScoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +21,9 @@ public class GameController {
 
     @Autowired
     private PlayerService playerService;
+
+    @Autowired
+    private ScoreRepository scoreRepository;
 
     @RequestMapping(value = "/player/create", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public Player createPlayer(@RequestBody Player player) {
@@ -64,6 +65,11 @@ public class GameController {
     @RequestMapping(value = "/locations", method = RequestMethod.GET, produces = "application/json")
     public List<Location> getLocations() {
         return Arrays.asList(new Location("Sea", 100), new Location("Village", 150), new Location("City", 250), new Location("Mountains", 200));
+    }
+
+    @RequestMapping(value = "/highscores", method = RequestMethod.GET, produces = "application/json")
+    public List<Score> getHighscores() {
+        return scoreRepository.getHighscores();
     }
 
 }
