@@ -7,22 +7,7 @@ export class InsuranceProviderService {
     private insurances: Insurance[];
     private getInsurancesUrl = '/insurances/';
 
-    constructor(private requestInvokerService: RequestInvokerService) {
-        this.insurances = [
-            /*{
-             name: "Health",
-             price: 200
-             },
-             {
-             name: "Car",
-             price: 10
-             },
-             {
-             name: "House",
-             price: 100
-             }*/
-        ]
-    }
+    constructor(private requestInvokerService: RequestInvokerService) {}
 
     getInsurances(): Insurance[] {
         return this.insurances;

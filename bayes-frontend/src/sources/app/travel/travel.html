@@ -7,7 +7,7 @@
         <span class="col-sm-3 btn">{{location.name}} </span>
         <span class="col-sm-2 btn">{{location.price}}$ </span>
         <button [disabled]="isTravelDisabled(location)" type="button" class="btn btn-info col-sm-3"
-                (click)="travel(location)" [disabled]="isTravelDisabled(location)">Travel
+                (click)="travel(location); goBack()" [disabled]="isTravelDisabled(location)">Travel
         </button>
     </div>
     <div class="row">

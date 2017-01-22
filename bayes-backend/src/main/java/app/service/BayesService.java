@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import smile.Network;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -52,15 +53,10 @@ public class BayesService implements InitializingBean {
     public String getNextWeather() {
         return evidences.get(Math.abs(random.nextInt()) % evidences.size());
     }
-//
-//    private void getEvidences(Network network) {
-//        evidences.forEach(evidence ->
-//                network.setEvidence(evidence.name, evidence.probability > random.nextDouble() ? TAK : NIE));
-//    }
-//
+
     private Event createInsurancePaidEvent(String insuranceName) {
         Insurance insurance = insuranceRepository.getInsuranceByName(insuranceName);
-        return new Event("You get money from " + insuranceName, insurance.getPrice() * 2, insurance);
+        return new Event("You get money from " + insurance.getPrettyName(), insurance.getPrice() * 2, insurance);
     }
     
     private boolean isInsuranceApplied(String insurance) {

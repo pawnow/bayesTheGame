@@ -10,4 +10,5 @@ import lombok.Data;
 public class Insurance {
     private String name;
     private int price;
+    private String prettyName;
 }

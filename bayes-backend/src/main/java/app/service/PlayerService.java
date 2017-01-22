@@ -34,7 +34,7 @@ public class PlayerService {
         List<Event> eventsBasedOnBayesOutputs = bayesService.getEventsBasedOnBayesOutputs(playerName);
         eventsBasedOnBayesOutputs.forEach(event -> handleEvent(playerName, event));
         if(player.map(Player::getAge).orElse(0) > 50){
-            eventsBasedOnBayesOutputs.add(new Event("END_GAME", 0, null));
+            eventsBasedOnBayesOutputs.add(new Event("You die", 0, null));
             scoreRepository.saveScore(new Score(playerName, player.map(Player::getMoney).orElse(0)));
             playerRepository.removePlayer(playerName);
             insuranceRepository.removeAllPlayerInsurance(playerName);

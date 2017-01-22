@@ -1,7 +1,8 @@
 import {Component} from "@angular/core";
 import {PlayerProviderService} from "../model/player-provider.service";
-import {LocationsProviderService} from "../model/location-provider.service.ts";
+import {LocationsProviderService} from "../model/location-provider.service";
 import {Location} from "../model/location";
+import {TravelService} from "./travel.service"
 
 @Component({
     selector: 'travel',
@@ -9,7 +10,8 @@ import {Location} from "../model/location";
 })
 export class TravelComponent {
     constructor(private playerProviderService: PlayerProviderService,
-                private locationsProviderService: LocationsProviderService) {
+                private locationsProviderService: LocationsProviderService,
+                private travelService: TravelService) {
     }
 
     getLocations(): Location[] {
@@ -17,7 +19,7 @@ export class TravelComponent {
     }
 
     travel(location: Location): void {
-        return this.locationsProviderService.travel(location, this.playerProviderService.getPlayer().name);
+        return this.travelService.travel(location, this.playerProviderService.getPlayer().name);
     }
 
     isTravelDisabled(location: Location) {

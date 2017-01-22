@@ -16,7 +16,7 @@ export class EventProviderService{
 
     addNewEvent(events: Event[]): void{
         this.events.push(...events);
-        if(this.events.find(x => x.description == "END_GAME") != undefined){
+        if(this.events.find(x => x.description == "You die") != undefined){
             let link = ['/highscores'];
             this.router.navigate(link);
         }

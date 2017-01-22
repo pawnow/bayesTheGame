@@ -6,3 +6,6 @@
 */built/**
 node_modules
 lib/**
+npm-debug.log
+bayes-frontend/node/
+bayes-frontend/npm-debug.log

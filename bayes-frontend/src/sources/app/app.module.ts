@@ -22,6 +22,7 @@ import {EventProviderService} from "./model/event-provider.service";
 import {EventComponent} from "./events/events.component";
 import {HighscoresComponent} from "./highscores/highscores.component";
 import {HighscoreProviderService} from "./model/highscores-provider.service";
+import {TravelService} from "./travel/travel.service"
 
 @NgModule({
     imports: [
@@ -45,6 +46,7 @@ import {HighscoreProviderService} from "./model/highscores-provider.service";
         PlayerProviderService,
         InsuranceProviderService,
         LocationsProviderService,
+        TravelService,
         RequestInvokerService,
         TurnService,
         InitializationService,

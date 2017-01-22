@@ -9,9 +9,14 @@ import java.util.*;
 
 @Repository
 public class InsuranceRepository {
-    private static final List<Insurance> allPossibleInsurances = Collections.unmodifiableList(Arrays.asList(new Insurance("HealthInsurance", 100),
-            new Insurance("HouseInsurance", 30), new Insurance("CarInsurance", 50), new Insurance("DisasterInsurance", 60),
-            new Insurance("TheftInsurance", 20), new Insurance("HolidayInsurance", 90)));
+    private static final List<Insurance> allPossibleInsurances = Collections.unmodifiableList(Arrays.asList(
+            new Insurance("HealthInsurance", 100, "health insurance"),
+            new Insurance("HouseInsurance", 30, "house insurance"),
+            new Insurance("CarInsurance", 50, "car insurance"),
+            new Insurance("DisasterInsurance", 60, "disaster insurance"),
+            new Insurance("TheftInsurance", 20, "theft insurance"),
+            new Insurance("HolidayInsurance", 90, "holiday insurance")
+    ));
     private Map<String, List<Insurance>> insuranceMap = new HashMap<>();
 
     public void addInsuranceToPlayer(String playerName, Insurance insurance) {

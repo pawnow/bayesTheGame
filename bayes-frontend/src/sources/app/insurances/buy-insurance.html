@@ -4,7 +4,7 @@
         <h4 class="col-sm-3">Available insurances:</h4>
     </div>
     <div class="row" *ngFor="let insurance of getInsurances()">
-        <span class="col-sm-3 btn">{{insurance.name}} </span>
+        <span class="col-sm-3 btn">{{insurance.prettyName}} </span>
         <span class="col-sm-2 btn">{{insurance.price}}$ </span>
         <button [disabled]="isBuyDisabled(insurance)" type="button" class="btn btn-info col-sm-3"
                 (click)="buyInsurance(insurance)">Buy Insurance
