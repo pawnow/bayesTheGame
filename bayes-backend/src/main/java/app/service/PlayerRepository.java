@@ -12,7 +12,7 @@ public class PlayerRepository {
     private List<Player> players = new ArrayList<>();
 
     public Player createPlayer(Player player) {
-        Player newPlayer = Player.builder().name(player.getName()).age(5).location("Sea").money(1000).weather("Sunny").build();
+        Player newPlayer = Player.builder().name(player.getName()).age(5).location("Sea").money(80).weather("Sunny").build();
         players.add(newPlayer);
         return newPlayer;
     }

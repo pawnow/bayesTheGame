@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import smile.Network;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -97,7 +96,7 @@ public class BayesService implements InitializingBean {
         for (outcomeIndex = 0; outcomeIndex < aForecastOutcomeIds.length; outcomeIndex++)
             if (TAK.equals(aForecastOutcomeIds[outcomeIndex]))
                 break;
-
+        System.out.println("Insurance: " + insurance + " has probability: " + network.getNodeValue(insurance)[outcomeIndex]);
         return network.getNodeValue(insurance)[outcomeIndex];
     }
 }
