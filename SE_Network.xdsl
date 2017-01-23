@@ -87,7 +87,7 @@
 			<state id="Yes" />
 			<state id="No" />
 			<parents>Rainy Snowy Cold</parents>
-			<probabilities>1 0 0.8 0.2 0.7 0.3 0.1 0.9 0.8 0.2 0.6 0.4 0.2 0.8 0.05 0.95</probabilities>
+			<probabilities>1 0 0.8 0.2 0.9 0.1 0.1 0.9 0.8 0.2 0.6 0.4 0.2 0.8 0.05 0.95</probabilities>
 		</cpt>
 		<cpt id="CarAccident">
 			<state id="Yes" />
@@ -128,7 +128,7 @@
 			<state id="Yes" />
 			<state id="No" />
 			<parents>Hail</parents>
-			<probabilities>0.7 0.3 0.7 0.3</probabilities>
+			<probabilities>0.7 0.3 0 1</probabilities>
 		</cpt>
 		<cpt id="HouseInsurance">
 			<state id="Yes" />
